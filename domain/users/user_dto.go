@@ -3,6 +3,7 @@ package users
 import (
 	"strings"
 
+	"github.com/sachinkapalidigi/bookstore_users-api/utils/date_utils"
 	"github.com/sachinkapalidigi/bookstore_users-api/utils/errors"
 )
 
@@ -20,5 +21,6 @@ func (user *User) Validate() *errors.RestErr {
 	if user.Email == "" {
 		return errors.NewBadRequestError("invalid email address")
 	}
+	user.DateCreated = date_utils.GetNowString()
 	return nil
 }

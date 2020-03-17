@@ -58,10 +58,10 @@ func GetUser(c *gin.Context) {
 		c.JSON(err.Status, err)
 		return
 	}
-	user, saveError := service.GetUser(userId)
+	user, saveError := services.GetUser(userId)
 
 	if saveError != nil {
-		c.JSON(saveErr.Status, saveError)
+		c.JSON(saveError.Status, saveError)
 		return
 	}
 
